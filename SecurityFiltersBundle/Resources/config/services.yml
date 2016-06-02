@@ -1,0 +1,26 @@
+parameters:
+    reea_security.acl_filters_manager.class:    Reea\SecurityFiltersBundle\SecurityProvider\AclFiltersManager
+    reea_security.load_acl_roles.class:         Reea\SecurityFiltersBundle\DataLoader\LoadAclRolesPermissions
+    reea_security.acl_filters.assessor.class:   Reea\SecurityFiltersBundle\Criteria\FilterAssessor
+services:
+#    reea_security_filters.example:
+#        class: Reea\SecurityFiltersBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    reea_security.filters_manager:
+        class: %reea_security.acl_filters_manager.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            
+    reea_security.load_acl_roles:
+        class: %reea_security.load_acl_roles.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @service_container
+            
+    reea_security.acl_filters.assessor:
+        class: %reea_security.acl_filters.assessor.class%
+        arguments:
+            - @oro_security.acl.manager
+            - @reea_security.filters_manager
+            - @service_container

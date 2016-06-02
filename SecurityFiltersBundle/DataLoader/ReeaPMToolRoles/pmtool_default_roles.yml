@@ -1,0 +1,127 @@
+ROLE_ADMINISTRATOR:
+    bap_role: ROLE_ADMINISTRATOR
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            filter: [VIEW_PRIORITY, DELETE_PRIORITY]
+ROLE_GENERAL_MANAGER:
+    label: General Manager
+    permissions:
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit: 
+            prime: [VIEW_GLOBAL, CREATE_GLOBAL, EDIT_GLOBAL, DELETE_GLOBAL]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            prime: [VIEW_SYSTEM]
+            filter: [VIEW_PRIORITY]
+        entity|Reea\ProjectBundle\Entity\Project: 
+            prime: [VIEW_SYSTEM, CREATE_SYSTEM, EDIT_SYSTEM, DELETE_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User: 
+            prime: [VIEW_GLOBAL, CREATE_GLOBAL, EDIT_GLOBAL, DELETE_GLOBAL]
+            filter: [EDIT_PRIORITY, DELETE_PRIORITY]
+        entity|Oro\Bundle\OrganizationBundle\Entity\Organization: 
+            prime: [VIEW_SYSTEM]
+            filter: []
+#----------------------------------------------------------------
+ROLE_ACCOUNT_MANAGER:
+    label: Account Manager
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit:
+            prime:  [VIEW_GLOBAL, CREATE_GLOBAL, EDIT_GLOBAL, DELETE_GLOBAL]
+            filter: []
+        entity|Reea\ProjectBundle\Entity\Project:
+            prime:  [VIEW_SYSTEM, CREATE_SYSTEM, EDIT_SYSTEM, DELETE_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User:
+            prime:  [VIEW_GLOBAL, CREATE_GLOBAL, EDIT_GLOBAL, DELETE_GLOBAL]
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\Organization:
+            prime:  [VIEW_SYSTEM]
+            filter: []
+#----------------------------------------------------------------
+ROLE_PROJECT_MANAGER:
+    label: Project Manager
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role:
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit: 
+            prime:  [VIEW_GLOBAL, ASSIGN_GLOBAL]
+            filter: []
+        entity|Reea\ProjectBundle\Entity\Project: 
+            prime:  [VIEW_SYSTEM, CREATE_SYSTEM, EDIT_SYSTEM, DELETE_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User: 
+            prime:  [CREATE_GLOBAL, EDIT_GLOBAL, DELETE_GLOBAL, VIEW_GLOBAL, ASSIGN_GLOBAL]
+            filter: [] 
+        entity|Oro\Bundle\OrganizationBundle\Entity\Organization: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+#----------------------------------------------------------------
+ROLE_ORGANIZATION_USER:
+    label: Organization User
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            prime:  []
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit: 
+            prime:  []
+            filter: []
+        entity|Reea\ProjectBundle\Entity\Project: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User: 
+            prime:  []
+            filter: []
+#----------------------------BUnit------------------------------------------------------------------------#
+ROLE_CUSTOMER_MANAGER:
+    label: Customer Manager
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit: 
+            prime:  [VIEW_SYSTEM, ASSIGN_SYSTEM]
+            filter: []
+        entity|Reea\ProjectBundle\Entity\Project: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User: 
+            prime:  [VIEW_DEEP, CREATE_SYSTEM, DELETE_DEEP]
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\Organization: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+ROLE_CUSTOMER_USER:
+    label: Customer User
+    permissions:
+        entity|Oro\Bundle\UserBundle\Entity\Role: 
+            prime:  []
+            filter: []
+        entity|Oro\Bundle\OrganizationBundle\Entity\BusinessUnit: 
+            prime:  [VIEW_LOCAL]
+            filter: []
+        entity|Reea\ProjectBundle\Entity\Project: 
+            prime:  [VIEW_SYSTEM]
+            filter: []
+        entity|Oro\Bundle\UserBundle\Entity\User: 
+            prime:  []
+            filter: []
+#---------------------------------------------------
+#        action|oro_dataaudit_history: []
+#        action|oro_importexport_export: []
+#        action|oro_importexport: []
+#        action|oro_importexport_import: []
+#        action|oro_jobs: []
+#        action|oro_entityconfig_manage: []
+#        action|oro_entity_merge: []
+#        action|oro_address_dictionaries_read: []
+#        action|oro_search: [EXECUTE]
+#        action|oro_config_system: []
+#        action|oro_platform_system_info: []
+#        action|oro_tag_assign_unassign: []
+#        action|oro_tag_unassign_global: []
+#        action|oro_workflow: [EXECUTE]
+#        action|oro_report_view_sql: []

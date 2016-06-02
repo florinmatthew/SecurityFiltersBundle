@@ -1,0 +1,2 @@
+bundles:
+    - {name: Reea\SecurityFiltersBundle\ReeaSecurityFiltersBundle, priority: 50}
